@@ -56,6 +56,7 @@ export function Navbar() {
           className="md:hidden"
           onClick={toggleMenu}
           aria-label="Toggle Menu"
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? (
             <X className="h-5 w-5" />

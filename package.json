@@ -8,7 +8,8 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
@@ -23,11 +24,13 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.3.0",
+    "storybook-addon-remix-react-router": "^4.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",
+    "@playwright/test": "^1.51.0",
     "@react-router/dev": "^7.3.0",
     "@storybook/addon-essentials": "^8.6.6",
     "@storybook/addon-onboarding": "^8.6.6",
@@ -51,5 +54,6 @@
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.8"
-  }
+  },
+  "packageManager": "pnpm@10.2.0+sha256.72f1630812107c8723eb5be4517725f3e13f09cfd8f71571cf29f23ce318bdb7"
 }
