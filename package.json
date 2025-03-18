@@ -9,13 +9,15 @@
     "typecheck": "react-router typegen && tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "chromatic": "npx chromatic --project-token=chpt_821698ceeef90a1"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
     "@react-google-maps/api": "^2.20.6",
     "@react-router/node": "^7.3.0",
     "@react-router/serve": "^7.3.0",
+    "chromatic": "^11.27.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

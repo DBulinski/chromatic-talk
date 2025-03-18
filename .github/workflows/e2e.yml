@@ -1,9 +1,11 @@
 name: 'E2e Tests'
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
+      - final
 
 jobs:
   component-tests:
@@ -24,3 +26,8 @@ jobs:
         run: pnpm build
       - name: Test
         run: pnpm test:e2e
+      - name: Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_STORYBOOK }}
+          configFile: '.chromatic.config.json'
