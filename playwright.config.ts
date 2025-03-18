@@ -1,7 +1,7 @@
 import { devices, defineConfig } from "@playwright/test";
 import type { ChromaticConfig } from "@chromatic-com/playwright";
 
-export default defineConfig({
+export default defineConfig<ChromaticConfig>({
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -20,6 +20,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+    disableAutoSnapshot: true,
   },
   webServer: {
     command: "pnpm start",

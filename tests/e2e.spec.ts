@@ -1,10 +1,12 @@
-import { test } from "@chromatic-com/playwright";
+import { takeSnapshot, test } from "@chromatic-com/playwright";
 
-test("can visit contact page", async ({ page }) => {
-  await page.goto("http://localhost:3000/contact");
+test("can visit contact page", async ({ page }, testInfo) => {
+  await page.goto("http://localhost:3000");
+  await takeSnapshot(page, "homepage", testInfo);
   await page
     .getByRole("navigation")
     .getByRole("link", { name: "Contact us" })
     .click();
   await page.waitForURL("http://localhost:3000/contact");
+  await takeSnapshot(page, "contact page", testInfo);
 });
