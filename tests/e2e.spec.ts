@@ -1,4 +1,4 @@
-import { test } from "playwright/test";
+import { test } from "@chromatic-com/playwright";
 
 test("can visit contact page", async ({ page }) => {
   await page.goto("http://localhost:3000/contact");

@@ -8,7 +8,7 @@ on:
       - final
 
 jobs:
-  component-tests:
+  tests:
     runs-on: ubuntu-latest
     name: 'E2e Tests'
     steps:
@@ -20,14 +20,43 @@ jobs:
       - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: pnpm install
+      - name: Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_STORYBOOK }}
+          configFile: '.chromatic.config.json'
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps
       - name: Build
         run: pnpm build
       - name: Test
         run: pnpm test:e2e
-      - name: Chromatic
-        uses: chromaui/action@latest
+      - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          projectToken: ${{ secrets.CHROMATIC_STORYBOOK }}
-          configFile: '.chromatic.config.json'
+            name: test-results
+            path: ./test-results
+            retention-days: 14
+  chromatic:
+      name: Chromatic
+      needs: tests
+      if: success()
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - name: Download Playwright test results
+          uses: actions/download-artifact@v4
+          with:
+            name: test-results
+            path: ./test-results
+        - name: Run Chromatic
+          uses: chromaui/action@latest
+          with:
+            playwright: true
+            projectToken: ${{ secrets.CHROMATIC_PLAYWRIGHT }}
+            exitOnceUploaded: true
+            configFile: '.chromatic.playwright.config.json'
+          env:
+            CHROMATIC_ARCHIVE_LOCATION: ./test-results

@@ -13,6 +13,7 @@
     "chromatic": "npx chromatic --project-token=chpt_821698ceeef90a1"
   },
   "dependencies": {
+    "@chromatic-com/playwright": "^0.12.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@react-google-maps/api": "^2.20.6",
     "@react-router/node": "^7.3.0",
