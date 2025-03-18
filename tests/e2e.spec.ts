@@ -1,5 +1,9 @@
 import { takeSnapshot, test } from "@chromatic-com/playwright";
 
+test.use({
+  ignoreSelectors: ["#rendered-at"],
+});
+
 test("can visit contact page", async ({ page }, testInfo) => {
   await page.goto("http://localhost:3000");
   await takeSnapshot(page, "homepage", testInfo);

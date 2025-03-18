@@ -28,7 +28,9 @@ export default function Contact() {
           <Map googleMapsKey={googleMapsKey} />
         </div>
       </div>
-      <div className="text-right text-xs">{renderedAt}</div>
+      <div id="rendered-at" className="text-right text-xs">
+        {renderedAt}
+      </div>
     </main>
   );
 }
