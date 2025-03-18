@@ -39,5 +39,9 @@ function PlainMap({ googleMapsKey }: MapComponentProps) {
 }
 
 export const Map = ({ googleMapsKey }: MapComponentProps) => {
-  return <PlainMap googleMapsKey={googleMapsKey} />;
+  return (
+    <div data-chromatic="ignore">
+      <PlainMap googleMapsKey={googleMapsKey} />
+    </div>
+  );
 };
