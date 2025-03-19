@@ -12,8 +12,7 @@ export function Homepage() {
                 Find your next favorite car
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Our platform helps you find car of your dreams! We have a wide
-                range of classic cars for you to choose from.
+                Hello in Xebia talk
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">

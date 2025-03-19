@@ -1,0 +1,7 @@
+{
+  "$schema": "https://www.chromatic.com/config-file.schema.json",
+  "projectId": "Project:67daa663bb9b5497e49ceab1",
+  "autoAcceptChanges": "main",
+  "externals": ["public/**"],
+  "onlyChanged": true
+}
